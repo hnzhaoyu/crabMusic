@@ -1,0 +1,559 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>网易云音乐（Cloudmusic）</title>
+		<!-- <link rel="shortcut icon" href="./cloudmusic/favicon.png"> -->
+		<!-- <link rel="stylesheet" href="./css/github-markdown.css"> -->
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 15px;
+			}
+			.markdown-body > ul{
+                list-style: none;
+                display: block;
+                position: fixed;
+                right: 20px;
+                top: 20px;
+                font-size: 12px;
+                background-color: #fcfcfc;
+                border-radius: 2px;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #d5d5d5;
+                padding: 15px 20px;
+            }
+            @media screen and (max-width: 768px){
+                .markdown-body > ul{
+                    display: none;
+                }
+            }
+		</style>
+	</head>
+	<body class="markdown-body">
+	    <!--favicon:./cloudmusic/favicon.png-->
+<p><a href="https://api.imjad.cn">返回首页</a></p>
+<h1 id=网易云音乐cloudmusic>网易云音乐（Cloudmusic）</h1>
+<style>
+    a{
+        color:#333;
+        text-decoration: none;
+    }
+    .copyright{
+        font-size: 0.8em;
+    }
+    a img{
+        width: 17px;
+        height: 17px;
+    }
+    input[type="text"],select {
+        height: 22px;
+    }
+    ::selection {
+        color: #414141;
+        background-color: rgba(0,0,0,0.2);
+    }
+</style>
+<blockquote class="update">
+本页面更新：<span id="index">读取中…</span><br>
+api更新：<span id="api">读取中…</span><br>
+</blockquote>
+<p>问题/反馈：ad # imjad.cn<br>
+调用超过 <b><span id="hit"> -- </span></b> 次<br>
+过去的 5 分钟内每分钟调用大约 <b><span id="speed"> -- </span></b> 次</p>
+
+  <video src="http://v4.music.126.net/20180524225020/2d896219373144be816d620287f266a1/web/cloudmusic/IDAjMSAgIDAxIzQ4ISBmIQ==/mv/5619326/150059d541dba49f7217976b86beadc1.mp4" autoplay controls style="max-width: 100%;">
+    
+  </video>
+
+<ul>
+<li><a href="#网易云音乐cloudmusic">网易云音乐（Cloudmusic）</a>
+<ul>
+<li><a href="#调用方法">调用方法</a></li>
+<li><a href="#参数说明">参数说明</a>
+<ul>
+<li><a href="#类型相关">类型相关</a>
+<ul>
+<li><a href="#单曲">单曲</a></li>
+<li><a href="#搜索歌手评论">搜索、歌手、评论</a></li>
+</ul></li>
+<li><a href="#听歌记录">听歌记录</a></li>
+<li><a href="#搜索相关">搜索相关</a>
+<ul>
+<li><a href="#搜索类型">搜索类型</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#小工具">小工具</a></li>
+</ul></li>
+</ul>
+<h3 id=调用方法>调用方法</h3>
+<p><code>GET https://api.imjad.cn/cloudmusic/</code></p>
+<h3 id=参数说明>参数说明</h3>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>含义</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>string</code> 指定请求类型</td>
+<td>song</td>
+</tr>
+<tr>
+<td>id</td>
+<td><code>int</code> 分类对应的ID</td>
+<td>必需</td>
+</tr>
+</tbody>
+</table>
+<h4 id=类型相关>类型相关</h4>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>song</td>
+<td>单曲</td>
+</tr>
+<tr>
+<td>lyric</td>
+<td>歌词</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>评论</td>
+</tr>
+<tr>
+<td>detail</td>
+<td>歌曲详情</td>
+</tr>
+<tr>
+<td>artist</td>
+<td>歌手</td>
+</tr>
+<tr>
+<td>album</td>
+<td>专辑</td>
+</tr>
+<tr>
+<td>playlist</td>
+<td>歌单</td>
+</tr>
+<tr>
+<td>record</td>
+<td>听歌记录</td>
+</tr>
+<tr>
+<td>mv</td>
+<td>MV</td>
+</tr>
+<tr>
+<td>djradio</td>
+<td>主播电台</td>
+</tr>
+<tr>
+<td>dj</td>
+<td>主播电台单曲 id</td>
+</tr>
+<tr>
+<td>detail_dj</td>
+<td>主播电台歌曲详情</td>
+</tr>
+<tr>
+<td>search</td>
+<td>搜索</td>
+</tr>
+</tbody>
+</table>
+<h5 id=单曲>单曲</h5>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>含义</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>br</td>
+<td><code>int</code> 指定歌曲码率，可用值为 64000,128000,198000,320000</td>
+<td>128000</td>
+</tr>
+<tr>
+<td>raw</td>
+<td><code>bool</code> 指定是否直接 302 到歌曲直链，可用值为 true 或 false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h5 id=搜索主播电台评论>搜索、主播电台、评论</h5>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>含义</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limit</td>
+<td><code>int</code> 指定返回结果数量</td>
+<td>20</td>
+</tr>
+<tr>
+<td>offset</td>
+<td><code>int</code> 指定偏移数量，用于分页</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h4 id=听歌记录>听歌记录</h4>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>含义</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>period</td>
+<td><code>int</code> 为 1 时返回最近一周，为 0 时返回所有时间，为 -1 时返回二者</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h4 id=搜索相关>搜索相关</h4>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>含义</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td><code>string</code> 关键词</td>
+<td>无</td>
+</tr>
+<tr>
+<td>search_type</td>
+<td><code>int</code> 搜索类型</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h5 id=搜索类型>搜索类型</h5>
+<table>
+<thead>
+<tr>
+<th>search_type</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>单曲</td>
+</tr>
+<tr>
+<td>10</td>
+<td>专辑</td>
+</tr>
+<tr>
+<td>100</td>
+<td>歌手</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>歌单</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>用户</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>mv</td>
+</tr>
+<tr>
+<td>1006</td>
+<td>歌词</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>主播电台</td>
+</tr>
+</tbody>
+</table>
+<h3 id=小工具>小工具</h3>
+<div class="tool">
+    <form>
+        search:
+        <input type="text" maxlength="20" name="search_text" style="width:220px;">&nbsp;
+        <input type="button" value="搜索" onclick="search()">&nbsp;
+        <span id="search_id">result</span><br>
+        type:
+        <select name="type">
+            <option value="song" selected="selected">单曲</option>
+            <option value="lyric">歌词</option>
+            <option value="mv">MV</option>
+        </select>&nbsp;
+        id:
+        <input type="text" maxlength="10" name="id" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" style="width:120px;">&nbsp;
+        br:
+        <select name="br">
+            <option value="128000" selected="selected">128000</option>
+            <option value="198000">198000</option>
+            <option value="320000">320000</option>
+        </select>&nbsp;
+        <input type="button" value="预览" onclick="get('view')">
+        <input type="button" value="下载" onclick="get('download')">
+    </form>
+    <p>
+        <input type="text" name="code" style="width:80%;max-width:500px;">
+    </p>
+</div>
+<script>
+    function search(){
+        document.getElementById("search_id").innerHTML = "";
+        var _song = "type=search" +"&s=" + document.getElementsByName("search_text")[0].value;
+        var _mv = "type=search&search_type=1004" +"&s=" + document.getElementsByName("search_text")[0].value;
+        Ajax(  //Ajax(type, url, data, success, failed)
+            'get', 
+            'https://api.imjad.cn/cloudmusic/', 
+            _song, 
+            function(data){
+                data = JSON.parse(data);
+                document.getElementById("search_id").innerHTML += "  (song)id:" + data.result.songs[0].id;
+            }, 
+            function(error){
+                document.getElementById("search_id").innerHTML = "读取失败";
+        });
+        Ajax(  //Ajax(type, url, data, success, failed)
+            'get', 
+            'https://api.imjad.cn/cloudmusic/', 
+            _mv, 
+            function(data){
+                data = JSON.parse(data);
+                document.getElementById("search_id").innerHTML += "  (mv)id:" + data.result.mvs[0].id;
+            }, 
+            function(error){
+                document.getElementById("search_id").innerHTML = "读取失败";
+        });
+    }
+    function get(type){
+        document.getElementsByName("code")[0].value = "https://api.imjad.cn/cloudmusic/?type=" + document.getElementsByName("type")[0].value +"&id=" + document.getElementsByName("id")[0].value +"&br=" +  document.getElementsByName("br")[0].value;
+        var _get = "type=" + document.getElementsByName("type")[0].value +"&id=" + document.getElementsByName("id")[0].value +"&br=" +  document.getElementsByName("br")[0].value;
+        Ajax(  //Ajax(type, url, data, success, failed)
+            'get', 
+            'https://api.imjad.cn/cloudmusic/', 
+            _get, 
+            function(data){
+                var url,a,filename;
+                data = JSON.parse(data);
+                if (document.getElementsByName("type")[0].value == 'song'){
+                    //data = data.data;
+                    var url = data.data[0].url;
+                    var filename = document.getElementsByName("id")[0].value + '.mp3';
+                    if (type == 'view'){
+                        addElement(document.getElementsByClassName('tool')[0],{tagname:"audio",style:"width:100%",src:url,controls:"controls",autoplay:"autoplay"});
+                    }else if(type == 'download'){
+                        download(url,filename);
+                    }
+                }else if (document.getElementsByName("type")[0].value == 'lyric'){
+                    lyric = data.lrc.lyric;
+                    lyric = lyric.replace(/\n/g,"\r\n");
+
+                    if (type == 'view'){
+                        lyric = lyric.replace(/\r\n/g,"<br>")  
+                        //console.log(lyric);
+                        addElement(document.getElementsByClassName('tool')[0],{tagname:"div",style:"width:100%;height:500px;overflow-y:scroll",innerHTML:lyric});
+                    }else if(type == 'download'){
+                        doSave(lyric, "text/plain", document.getElementsByName("id")[0].value + ".lrc");                             
+                    }
+                    function doSave(value, type, name) {
+                        var blob;
+                        if (typeof window.Blob == "function") {
+                            blob = new Blob([value], {type: type});
+                        } else {
+                            var BlobBuilder = window.BlobBuilder || window.MozBlobBuilder || window.WebKitBlobBuilder || window.MSBlobBuilder;
+                            var bb = new BlobBuilder();
+                            bb.append(value);
+                            blob = bb.getBlob(type);
+                        }
+                        var URL = window.URL || window.webkitURL;
+                        var bloburl = URL.createObjectURL(blob);
+                        var anchor = document.createElement("a");
+                        if ('download' in anchor) {
+                            anchor.style.visibility = "hidden";
+                            anchor.href = bloburl;
+                            anchor.download = name;
+                            document.body.appendChild(anchor);
+                            var evt = document.createEvent("MouseEvents");
+                            evt.initEvent("click", true, true);
+                            anchor.dispatchEvent(evt);
+                            document.body.removeChild(anchor);
+                        } else if (navigator.msSaveBlob) {
+                            navigator.msSaveBlob(blob, name);
+                        } else {
+                            location.href = bloburl;
+                        }
+                    }
+                }else if (document.getElementsByName("type")[0].value == 'mv'){
+                    //data = data.data;
+                    var url = data.data.brs["720"];
+                    var filename = document.getElementsByName("id")[0].value + '.mp4';
+                    if (type == 'view'){
+                        addElement(document.getElementsByClassName('tool')[0],{tagname:"video",style:"max-width:100%",src:url,controls:"controls",autoplay:"autoplay"});
+                    }else if(type == 'download'){
+                        download(url,filename);
+                    }
+                }
+            }, 
+            function(error){
+                document.getElementsByClassName("tool")[0].innerHTML += "<span style=\"color:red\"><b>读取失败</b></span>";
+            });
+    }
+    function download(url,filename){
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+    }
+    function addElement(obj,element){
+        var parent = obj;
+        var child = document.createElement(element.tagname);
+        for (value in element){
+            child[value] = element[value];
+            //console.log(child[value]);
+        }
+        parent.appendChild(child);
+        return child;
+    }
+</script>
+<script type="text/javascript" src="https://api.imjad.cn/hitokoto/?encode=js&charset=utf-8"></script>
+<p id="hitokoto"><script>hitokoto()</script></p>
+<p class="copyright">© <script>document.write(new Date().getFullYear())</script> journey.ad</p>
+<script>
+    function Ajax(type, url, data, success, failed){
+        // 创建ajax对象
+        var xhr = null;
+        if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = new ActiveXObject('Microsoft.XMLHTTP')
+        }
+
+        var type = type.toUpperCase();
+        // 用于清除缓存
+        var random = Math.random();
+
+        if(typeof data == 'object'){
+            var str = '';
+            for(var key in data){
+                str += key+'='+data[key]+'&';
+            }
+            data = str.replace(/&$/, '');
+        }
+
+        if(type == 'GET'){
+            if(data){
+                xhr.open('GET', url + '?' + data, true);
+            } else {
+                xhr.open('GET', url + '?t=' + random, true);
+            }
+            xhr.send();
+
+        } else if(type == 'POST'){
+            xhr.open('POST', url, true);
+            // 如果需要像 html 表单那样 POST 数据，请使用 setRequestHeader() 来添加 http 头。
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(data);
+        }
+
+        // 处理返回数据
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    success(xhr.responseText);
+                } else {
+                    if(failed){
+                        failed(xhr.status);
+                    }
+                }
+            }
+        }
+    }
+
+    Ajax(  //Ajax(type, url, data, success, failed)
+        'get', 
+        'https://api.imjad.cn/cloudmusic/counter.php', 
+        '', 
+        function(data){
+            data = JSON.parse(data);
+            document.getElementById("index").innerHTML = data.index;
+            document.getElementById("api").innerHTML = data.api;
+            document.getElementById("hit").innerHTML = data.hit;
+            document.getElementById("speed").innerHTML = data.speed;
+        }, 
+        function(error){
+            var spans = document.getElementsByClassName("update")[0].getElementsByTagName("span");
+            for (var i=0;i<spans.length;i++){
+                spans[i].innerHTML = "读取失败";
+            }
+        });
+
+        function switch1(a){
+            document.getElementsByClassName("content new")[0].style.display = "block";
+            document.getElementsByClassName("content old")[0].style.display = "none";
+            a.className+=" checked";
+            document.getElementsByClassName("old")[0].className=document.getElementsByClassName("old")[0].className.replace( /(?:^|\s)checked(?!\S)/g , '' );
+        }
+        function switch2(a){
+            document.getElementsByClassName("content new")[0].style.display = "none";
+            document.getElementsByClassName("content old")[0].style.display = "block";
+            a.className+=" checked";
+            document.getElementsByClassName("new")[0].className=document.getElementsByClassName("new")[0].className.replace( /(?:^|\s)checked(?!\S)/g , '' );
+        }
+</script>
+	</body>
+	
+	<script>
+	    (function(){
+    	    var forEach = function (array, callback, scope) {
+                for (var i = 0; i < array.length; i++) {
+                    callback.call(scope, i, array[i]);
+                }
+            };
+            var anchorLinks = document.querySelectorAll("a[href^='#']");
+            if (window.scrollTo) {
+                forEach(anchorLinks, function(index, element) {
+                    var target = document.getElementById(element.getAttribute("href").substring(1));
+                    element.addEventListener("click", function(el) {
+                        el.preventDefault();
+                        scrollTo({"behavior": "smooth", "top": target.offsetTop}); 
+                    })
+                });
+            }
+	    })();
+	</script>
+</html>
