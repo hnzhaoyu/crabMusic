@@ -6,15 +6,15 @@
   		<p style="text-align: left;padding-left: 0.6rem;padding-top: 0.6rem;">基本信息:</p>
   		<div class="forJob-box">
   			<div class="forJob-item0">毕业学校:</div>
-  			<div class="forJob-item1">新乡学院</div>
+  			<div class="forJob-item1">XXXX</div>
   			<div class="forJob-item0">学位:</div>
   			<div class="forJob-item1">本科</div>
   			<div class="forJob-item0">毕业时间:</div>
-  			<div class="forJob-item1">2015年6月</div>
+  			<div class="forJob-item1">20XX年6月</div>
   			<div class="forJob-item0">职业:</div>
   			<div class="forJob-item1">前端开发工程师</div>
   			<div class="forJob-item0">工作年限:</div>
-  			<div class="forJob-item1">2015年7月——至今</div>
+  			<div class="forJob-item1">20XX年7月——至今</div>
   		</div>
   		
   	</div>
