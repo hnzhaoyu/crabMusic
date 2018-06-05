@@ -1,7 +1,7 @@
 <template>
 <div class="forJob">
   <div>
-  	<h4>赵宇</h4>
+  	<h4>魔都小白</h4>
   	<div class="msg">
   		<p style="text-align: left;padding-left: 0.6rem;padding-top: 0.6rem;">基本信息:</p>
   		<div class="forJob-box">
